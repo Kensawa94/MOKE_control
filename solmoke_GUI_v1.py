@@ -54,6 +54,7 @@ class myGUIapp(QtGui.QMainWindow,SolMOKE_GUI.Ui_MainWindow):
     def set_field(self):
         print "Field is now >>> ",self.fieldCtrlSlider.value()
 
+### just for test, before connecting hardware through pyvisa module ##########
     def takeData(self):
         if self.lockInRadioBtn.isChecked():
             self.field = self.fieldCtrlSlider.value()
