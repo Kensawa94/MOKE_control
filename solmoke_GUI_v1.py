@@ -24,45 +24,75 @@ class myGUIapp(QtGui.QMainWindow,SolMOKE_GUI.Ui_MainWindow):
     def __init__(self,parent=None):
         super(myGUIapp,self).__init__(parent)
         self.setupUi(self)
-        self.startBtn.clicked.connect(self.startGraph)
-        self.stopBtn.clicked.connect(self.stopGraph)
+        self.startTimescanBtn.clicked.connect(self.startTimescanGraph)
+        self.stopTimescanBtn.clicked.connect(self.stopTimescanGraph)
         self.myTimer = pg.QtCore.QTimer()
-        self.myTimer.timeout.connect(self.updateGraph)
+        self.myTimer.timeout.connect(self.updateTimescanGraph)
         self.workDirBtn.clicked.connect(self.chooseWorkDir)
+        self.workDirBtn_1.clicked.connect(self.chooseWorkDir)
+        self.workDirBtn_4.clicked.connect(self.chooseWorkDir)
+        self.lockInRadioBtn.setChecked(True)
+        self.tempCtrlSlider.setSingleStep(1)
+        self.tempCtrlSlider.setMinimum(5)
+        self.tempCtrlSlider.setMaximum(400)
+        self.tempCtrlSlider.setValue(300)
+        self.fieldCtrlSlider.setSingleStep(1)
+        self.fieldCtrlSlider.setMinimum(-12000)
+        self.fieldCtrlSlider.setMaximum(12000)
+        self.lcdField.setDigitCount(6)
+        self.lcdTemp.setDigitCount(6)
+        self.tempCtrlSlider.valueChanged.connect(self.set_temperature)
+        self.fieldCtrlSlider.valueChanged.connect(self.set_field)
         self.myLag = 100
         
     def chooseWorkDir(self):
         self.workDir = str(QtGui.QFileDialog.getExistingDirectory(self,"Select your working directory"))+'/'
     
+    def set_temperature(self):
+        print "Temperature is now >>> ",self.tempCtrlSlider.value()
+
+    def set_field(self):
+        print "Field is now >>> ",self.fieldCtrlSlider.value()
+
     def takeData(self):
-        self.xx = pg.ptime.time()
-        self.y = 0.1+self.xx**(-0.2)
+        if self.lockInRadioBtn.isChecked():
+            self.field = self.fieldCtrlSlider.value()
+            self.xx = pg.ptime.time()
+            self.y = 0.1+self.xx**(-0.2*self.field/1000)
+        elif self.tempRadioBtn.isChecked():
+            self.temp = self.tempCtrlSlider.value()
+            self.xx = pg.ptime.time()
+            self.y = 0.1+self.xx**(0.2*self.temp/100)            
         return self.xx,self.y
 
-    def updateGraph(self):
+    def updateTimescanGraph(self):
         self.xx,self.y = self.takeData()
         self.Xdatabuffer.append(self.xx-self.xx0-self.myLag/1000)
         self.Ydatabuffer.append(self.y)
-        self.graphicsView.plot(x=self.Xdatabuffer ,y=self.Ydatabuffer,clear=True, pen=None,symbol='o',symbolSize=5,symbolPen=(255,255,0))
+        self.graphicsViewTime.plot(x=self.Xdatabuffer ,y=self.Ydatabuffer,clear=True, pen=None,symbol='o',symbolSize=5,symbolPen=(255,255,0))
         self.fileTimescanName = self.workDir+self.saveTimescanFileName.text()
         with open(self.fileTimescanName,'a') as outFile:
             outFile.writelines(str(self.xx-self.xx0-self.myLag/1000)+"\t"+str(self.y)+"\n")
 
-    def startGraph(self):
+    def startTimescanGraph(self):
         self.Xdatabuffer = []
         self.Ydatabuffer = []
-        self.graphicsView.clear()
+        self.graphicsViewTime.clear()
         self.xx0 = pg.ptime.time()
-        self.graphicsView.setLabel('left', "Signal", units='a. u.')
-        self.graphicsView.setLabel('bottom', "Time", units='sec.')
-        self.graphicsView.showGrid(x=True,y=True)
+        if self.lockInRadioBtn.isChecked():
+            self.graphicsViewTime.setLabel('left', "LockIn signal", units='a. u.')
+            self.graphicsViewTime.setLabel('bottom', "Time", units='sec.')
+        elif self.tempRadioBtn.isChecked():
+            self.graphicsViewTime.setLabel('left', "Temperature", units='K')
+            self.graphicsViewTime.setLabel('bottom', "Time", units='sec.')
+        self.graphicsViewTime.showGrid(x=True,y=True)
         self.fileTimescanName = self.workDir+self.saveTimescanFileName.text()
         print "SAVE FILE >>>>>> ",self.fileTimescanName
         with open(self.fileTimescanName,'w') as outFile:
             outFile.writelines("Timescan started @ %s\n\n"%(time.ctime()))
         self.myTimer.start(self.myLag)
 
-    def stopGraph(self):
+    def stopTimescanGraph(self):
         self.myTimer.stop()
 
 
