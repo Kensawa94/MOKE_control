@@ -12,22 +12,50 @@ from PyQt4 import QtGui, QtCore
 import pyqtgraph as pg
 import SolMOKE_GUI
 import time
-import visa
+import LakeshoreCtrl
 from scipy.interpolate import interp1d,interp2d
-
-
-#ResMan = visa.ResourceManager()
-#TempCtrl = ResMan.open_resource("GPIB0::12::INSTR")
 
 
 class myGUIapp(QtGui.QMainWindow,SolMOKE_GUI.Ui_MainWindow):
     def __init__(self,parent=None):
         super(myGUIapp,self).__init__(parent)
         self.setupUi(self)
+        
+        try:
+            self.temperature = LakeshoreCtrl.LakeshoreCtrl()
+            time.sleep(3)
+        except:
+            print "Lakeshore not connected!"
+            pass
+            
+        self.LakeshoreONbutn.clicked.connect(self.lakeshoreON)
+        self.LakeshoreOFFbutn.clicked.connect(self.lakeshoreOFF)
+        self.LakeshoreONbutn.setChecked(True)
+        self.myPalette = QtGui.QPalette()
+        self.myPalette.setColor(QtGui.QPalette.Background,QtCore.Qt.green)
+        self.myPalette.setColor(QtGui.QPalette.Foreground,QtCore.Qt.black)
+        self.LakeshoreLabel.setPalette(self.myPalette)
+        self.LockInONbutn.clicked.connect(self.LockInON)
+        self.LockInOFFbutn.clicked.connect(self.LockInOFF)
+        self.LockInLabel.setPalette(self.myPalette)
+        self.LockInONbutn.setChecked(True)
+        self.MagnetLabel.setPalette(self.myPalette)
+        self.MagnetONbutn.clicked.connect(self.MagnetON)
+        self.MagnetOFFbutn.clicked.connect(self.MagnetOFF)
+        self.MagnetONbutn.setChecked(True)
+        self.readPalette = QtGui.QPalette()
+        self.readPalette.setColor(QtGui.QPalette.Background,QtCore.Qt.black)
+        self.readPalette.setColor(QtGui.QPalette.Foreground,QtCore.Qt.yellow)
+        self.readTempLabel.setPalette(self.readPalette)
+        self.readTempTimer = pg.QtCore.QTimer()
+        self.readTempTimer.timeout.connect(self.update_temp)
+        
+        self.setTempLine.returnPressed.connect(self.setPointTemp)
+        
         self.startTimescanBtn.clicked.connect(self.startTimescanGraph)
         self.stopTimescanBtn.clicked.connect(self.stopTimescanGraph)
-        self.myTimer = pg.QtCore.QTimer()
-        self.myTimer.timeout.connect(self.updateTimescanGraph)
+        self.timeTimer = pg.QtCore.QTimer()
+        self.timeTimer.timeout.connect(self.updateTimescanGraph)
         self.workDirBtn.clicked.connect(self.chooseWorkDir)
         self.workDirBtn_1.clicked.connect(self.chooseWorkDir)
         self.workDirBtn_4.clicked.connect(self.chooseWorkDir)
@@ -45,16 +73,58 @@ class myGUIapp(QtGui.QMainWindow,SolMOKE_GUI.Ui_MainWindow):
         self.fieldCtrlSlider.valueChanged.connect(self.set_field)
         self.myLag = 100
         
+
+    def lakeshoreON(self):
+        self.temperature.open()
+        self.myPalette.setColor(QtGui.QPalette.Background,QtCore.Qt.green)
+        self.myPalette.setColor(QtGui.QPalette.Foreground,QtCore.Qt.black)
+        self.LakeshoreLabel.setPalette(self.myPalette)
+        self.LakeshoreOFFbutn.setChecked(False)
+        
+    def lakeshoreOFF(self):
+        self.temperature.close()
+        self.myPalette.setColor(QtGui.QPalette.Background,QtCore.Qt.red)
+        self.myPalette.setColor(QtGui.QPalette.Foreground,QtCore.Qt.yellow)
+        self.LakeshoreLabel.setPalette(self.myPalette)
+        self.LakeshoreONbutn.setChecked(False)
+
+    def LockInON(self):
+        #self.temperature.open()
+        self.myPalette.setColor(QtGui.QPalette.Background,QtCore.Qt.green)
+        self.myPalette.setColor(QtGui.QPalette.Foreground,QtCore.Qt.black)
+        self.LockInLabel.setPalette(self.myPalette)
+        self.LockInOFFbutn.setChecked(False)
+        
+    def LockInOFF(self):
+        #self.temperature.close()
+        self.myPalette.setColor(QtGui.QPalette.Background,QtCore.Qt.red)
+        self.myPalette.setColor(QtGui.QPalette.Foreground,QtCore.Qt.yellow)
+        self.LockInLabel.setPalette(self.myPalette)
+        self.LakeshoreONbutn.setChecked(False)
+
+    def MagnetON(self):
+        #self.temperature.open()
+        self.myPalette.setColor(QtGui.QPalette.Background,QtCore.Qt.green)
+        self.myPalette.setColor(QtGui.QPalette.Foreground,QtCore.Qt.black)
+        self.MagnetLabel.setPalette(self.myPalette)
+        self.MagnetOFFbutn.setChecked(False)
+        
+    def MagnetOFF(self):
+        #self.temperature.close()
+        self.myPalette.setColor(QtGui.QPalette.Background,QtCore.Qt.red)
+        self.myPalette.setColor(QtGui.QPalette.Foreground,QtCore.Qt.yellow)
+        self.MagnetLabel.setPalette(self.myPalette)
+        self.MagnetONbutn.setChecked(False)
+
     def chooseWorkDir(self):
-        self.workDir = str(QtGui.QFileDialog.getExistingDirectory(self,"Select your working directory"))+'/'
-    
+        self.workDir = str(QtGui.QFileDialog.getExistingDirectory(self,"Select your working directory","/home/solmoke/Documents/DATA_MOKE"))+'/'
+   
     def set_temperature(self):
         print "Temperature is now >>> ",self.tempCtrlSlider.value()
 
     def set_field(self):
         print "Field is now >>> ",self.fieldCtrlSlider.value()
 
-### just for test, before connecting hardware through pyvisa module ##########
     def takeData(self):
         if self.lockInRadioBtn.isChecked():
             self.field = self.fieldCtrlSlider.value()
@@ -91,11 +161,22 @@ class myGUIapp(QtGui.QMainWindow,SolMOKE_GUI.Ui_MainWindow):
         print "SAVE FILE >>>>>> ",self.fileTimescanName
         with open(self.fileTimescanName,'w') as outFile:
             outFile.writelines("Timescan started @ %s\n\n"%(time.ctime()))
-        self.myTimer.start(self.myLag)
+        self.timeTimer.start(self.myLag)
 
     def stopTimescanGraph(self):
-        self.myTimer.stop()
+        self.timeTimer.stop()
+    
+    def setPointTemp(self):
+        self.spTemp = self.setTempLine.text()
+        self.rampTemp = self.setTempRampLine.text()
+        print "Ramp is set to >>>> ",self.rampTemp
+        self.temperature.set_temp(self.spTemp)
 
+    def update_temp(self):
+        self.read_temp = self.temperature.get_temp()
+        self.readTempLabel.setText(self.read_temp)
+        #print "TEMP >>>> ",self.read_temp
+        self.readTempTimer.start(self.myLag)
 
     ##############################
     ###########  SCANS section  #########
@@ -253,6 +334,7 @@ def main():
     app = QtGui.QApplication(sys.argv)
     win = myGUIapp()
     win.show()
+    win.update_temp()
     app.exec_()
 
 if __name__=='__main__':
