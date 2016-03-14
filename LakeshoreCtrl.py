@@ -29,16 +29,7 @@ class LakeshoreCtrl:
             print "INTERNAL TEST OK >>> temperature controller functionning properly!"
         else:
             print "INTERNAL TEST NOT OK >>> check the temperature controller!"
-    def open(self):
-        self.TempCtrl.open()
-        print "Lakeshore com open!"
-    def close(self):
-        self.TempCtrl.close()
-        print "Lakeshore com close!"
-
-    def reset(self):
-        self.TempCtrl.write("*CLS")
-        self.TempCtrl.write("*RST")
+            
     def get_temp(self):
         self.theTemp = self.TempCtrl.query("CRDG? A")
         return self.theTemp.strip('\r\n')
