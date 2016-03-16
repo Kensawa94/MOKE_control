@@ -15,8 +15,8 @@ import time
 import LakeshoreCtrl
 from scipy.interpolate import interp1d,interp2d
 
-myInstrument = "HermesMOKE"
-#myInstrument = "SolMOKE"
+#myInstrument = "HermesMOKE"
+myInstrument = "SolMOKE"
 
 class myGUIapp(QtGui.QMainWindow,SolMOKE_GUI.Ui_MainWindow):
     def __init__(self,parent=None):
@@ -65,24 +65,26 @@ class myGUIapp(QtGui.QMainWindow,SolMOKE_GUI.Ui_MainWindow):
         self.timeTimer.timeout.connect(self.updateTimescanGraph)
         self.workDirBtn.clicked.connect(self.chooseWorkDir)
         self.workDirBtn_1.clicked.connect(self.chooseWorkDir)
-        self.workDirBtn_4.clicked.connect(self.chooseWorkDir)
         self.lockInRadioBtn.setChecked(True)
-        self.poleTypeCB.addItems(['pole_20','pole_40'])
-        self.gapValueCB.addItems(['0.5','7.5','10','15','20','25','30','40'])
+        if myInstrument == "HermesMOKE":
+            self.poleTypeCB.addItems(['pole_20','pole_40'])
+            self.gapValueCB.addItems(['0.5','7.5','10','15','20','25','30','40'])
+        elif myInstrument == "SolMOKE":
+            self.gapValueCB.addItems(['20','24','26','28','30','32','34','36'])
         self.myLag = 100
 
     def chooseWorkDir(self):
         self.workDir = str(QtGui.QFileDialog.getExistingDirectory(self,"Select your working directory","/home/solmoke/Documents/DATA_MOKE"))+'/'
    
-    def readData(self):
-        if self.lockInRadioBtn.isChecked():
-            #self.field = self.fieldCtrlSlider.value()
-            #self.xx = pg.ptime.time()
-            #self.y = 0.1+self.xx**(-0.2*self.field/1000)
-        elif self.tempRadioBtn.isChecked():
-            #self.temp = self.tempCtrlSlider.value()
-            #self.xx = pg.ptime.time()
-            #self.y = 0.1+self.xx**(0.2*self.temp/100)            
+#    def readData(self):
+#        if self.lockInRadioBtn.isChecked():
+#            self.field = self.fieldCtrlSlider.value()
+#            self.xx = pg.ptime.time()
+#            self.y = 0.1+self.xx**(-0.2*self.field/1000)
+#        elif self.tempRadioBtn.isChecked():
+#            self.temp = self.tempCtrlSlider.value()
+#            self.xx = pg.ptime.time()
+#            self.y = 0.1+self.xx**(0.2*self.temp/100)            
         return self.xx,self.y
 
     def updateTimescanGraph(self):
