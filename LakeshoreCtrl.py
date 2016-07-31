@@ -29,18 +29,17 @@ class LakeshoreCtrl:
             print "INTERNAL TEST OK >>> temperature controller functionning properly!"
         else:
             print "INTERNAL TEST NOT OK >>> check the temperature controller!"
-            
+
     def get_temp(self):
-        self.theTemp = self.TempCtrl.query("CRDG? A")
-        return self.theTemp.strip('\r\n')
-    
+        theTemp = self.TempCtrl.query("CRDG? A")
+        return self.LakeStr(theTemp)
     def get_heaterOut(self):
-        self.heatPow = self.TempCtrl.query("HTR? 1")
-        return self.heatPow.strip('\r\n')
-        
+        heatPow = self.TempCtrl.query("HTR? 1")
+        return self.LakeStr(heatPow)
+    def set_temp(self, spTemp):
+        self.TempCtrl.write("SETP 1,%f"%spTemp)
+        print "Temperature set to >>> ...",spTemp
+    def set_tempRamp(self,rampTemp):
+        self.TempCtrl.write("RAMP 1,1,%f"%rampTemp)
     def LakeStr(self,theLakeAnswer):
         return theLakeAnswer.strip("\r\n")
-    
-    def set_temp(self, spTemp):
-        print "Temperature set to >>> ...",spTemp
-        

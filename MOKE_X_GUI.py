@@ -3,8 +3,8 @@
 pyvisa module for DEMAG/MOKE HERMES control
 GUI Tkinter version
 Used to measure lock-in signal from Princeton 5210 and drive the Kepco PS
-credits © S. Stanescu
-04/12/2103 
+credits ï¿½ S. Stanescu
+04/12/2103
 """
 
 
@@ -46,7 +46,7 @@ def change_SEN(val):
 	for sen in sensitivity:
 		if tmp_str == sensitivity[str(sen)]:
 			print "You are now on SENSITIVITY %s"%(sen)
-	
+
 def test_motor():
 	acc_deg = float(accEntry.get())
 	dec_deg = float(decEntry.get())
@@ -87,7 +87,7 @@ def LockIn_init():
 
 def LockIn_clear():
 	LockIn.clear()
-	print "LockIn cleaned!"  
+	print "LockIn cleaned!"
 
 
 def LockIn_measure():
@@ -120,16 +120,16 @@ def field2curr(the_field):
 	table_gaps = aa[0,1:]
 	table_currents = aa[1:,0]
 	table_fields = [aa[1:,ii] for ii in range(1,len(table_gaps)+1)]
-	
+
 	dict_gaps={}
 	for temp_gap,temp_field in zip(table_gaps,table_fields):
 		dict_gaps[temp_gap] = temp_field
-	
+
 	curr_interp = interp1d(dict_gaps[my_gap],table_currents)
-	
+
 	if the_field >= 0:
 		the_current = curr_interp(abs(the_field))
-	else: 
+	else:
 		the_current = (-1)*curr_interp(abs(the_field))
 	return the_current
 
@@ -150,7 +150,7 @@ def curr2field(the_current):
 
 	if the_current >= 0:
 		the_field = field_interp(abs(the_current),my_gap)[0]
-	else: 
+	else:
 		the_field = (-1)*field_interp(abs(the_current),my_gap)[0]
 	return the_field
 
@@ -203,12 +203,12 @@ def demagnetize():
 	max_field = float(F1.get())
 	steps = int(F2.get())
 	kepcoInit()
-	
+
 	while (field2curr(max_field) >= 3.0):
 		max_field = tkSimpleDialog.askfloat('MAGNET OVERLOAD','Choose a new value for the field or decrease the gap!')
 	step_field = max_field/(steps+1)
 	list_fields = r_[max_field:step_field/2-step_field/10:-step_field]
-	
+
 	for my_field in list_fields:
 		my_write_curr = field2curr(my_field)
 		kepco.write("CURR %f"%(my_write_curr))
@@ -236,7 +236,7 @@ def demagnetize():
 ##############################
 ######### SCANS section ######
 ##############################
-		
+
 def timescan():
 	fileName = e1.get()
 	pn = int(e2.get())
@@ -308,7 +308,7 @@ def hyst():
 	del my_read_field
 	del my_field
 
-	
+
 def m_hyst():
 	root_fileName = h1.get()
 	Hmax = float(h2.get())
@@ -399,7 +399,7 @@ def m_hyst():
 	del index
 #	del YY_mean
 #	del YY_sum
-#	YY_sum = zeros(len(steps),float)	
+#	YY_sum = zeros(len(steps),float)
 #	for index in range(mm):
 #		YY_sum = [(YY_sum[ii]+YY[index][ii]) for ii in range(len(list(steps2)+list(steps3)))]
 #	YY_mean = [(YY_sum[ii]/mm) for ii in range(len(list(steps2)+list(steps3)))]
@@ -586,7 +586,7 @@ def plot_update_mean(x2,data2):
 	bx.legend(loc=4)
 	canv.draw()
 	canv.get_tk_widget().pack(fill='both',expand=True,side = 'right')
-	
+
 
 def mokeExit(): root.destroy()
 
@@ -597,4 +597,3 @@ set_field_zero()
 root.after(1, plot_update)
 root.after(1, plot_update_mean)
 root.mainloop()
-

@@ -58,12 +58,12 @@
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
-        <string>GENERAL SETUP</string>
+        <string>SETUP</string>
        </attribute>
        <widget class="QLabel" name="label_6">
         <property name="geometry">
          <rect>
-          <x>60</x>
+          <x>90</x>
           <y>10</y>
           <width>181</width>
           <height>31</height>
@@ -76,7 +76,7 @@
        <widget class="QFrame" name="gridFrame_5">
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>40</x>
           <y>90</y>
           <width>291</width>
           <height>171</height>
@@ -94,6 +94,8 @@
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -102,7 +104,15 @@
           </widget>
          </item>
          <item row="5" column="1">
-          <widget class="QLabel" name="readTempLabel_2">
+          <widget class="QLabel" name="readTempSetup">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>28</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="autoFillBackground">
             <bool>true</bool>
            </property>
@@ -116,6 +126,8 @@
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -124,7 +136,7 @@
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QLineEdit" name="setTempLine_2">
+          <widget class="QLineEdit" name="setTempSetup">
            <property name="placeholderText">
             <string>temperature</string>
            </property>
@@ -135,6 +147,8 @@
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -143,7 +157,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QProgressBar" name="tempHeaterOutputBar_2">
+          <widget class="QProgressBar" name="heaterOutBarSetup">
            <property name="value">
             <number>0</number>
            </property>
@@ -157,6 +171,8 @@
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -165,7 +181,7 @@
           </widget>
          </item>
          <item row="3" column="1">
-          <widget class="QLineEdit" name="setTempRampLine_2">
+          <widget class="QLineEdit" name="setTempRampSetup">
            <property name="placeholderText">
             <string>temp. ramp</string>
            </property>
@@ -176,7 +192,7 @@
        <widget class="QPushButton" name="connectLakeshoreBtn">
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>40</x>
           <y>50</y>
           <width>171</width>
           <height>31</height>
@@ -189,7 +205,7 @@
        <widget class="QLabel" name="label_16">
         <property name="geometry">
          <rect>
-          <x>460</x>
+          <x>660</x>
           <y>10</y>
           <width>131</width>
           <height>31</height>
@@ -202,8 +218,8 @@
        <widget class="QLabel" name="label_45">
         <property name="geometry">
          <rect>
-          <x>860</x>
-          <y>10</y>
+          <x>120</x>
+          <y>340</y>
           <width>131</width>
           <height>31</height>
          </rect>
@@ -215,10 +231,10 @@
        <widget class="QFrame" name="gridFrame_11">
         <property name="geometry">
          <rect>
-          <x>780</x>
-          <y>90</y>
+          <x>40</x>
+          <y>420</y>
           <width>301</width>
-          <height>211</height>
+          <height>201</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -233,6 +249,8 @@
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -241,7 +259,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLineEdit" name="setRotPositionLine_2">
+          <widget class="QLineEdit" name="setMotPosSetup">
            <property name="layoutDirection">
             <enum>Qt::RightToLeft</enum>
            </property>
@@ -251,7 +269,15 @@
           </widget>
          </item>
          <item row="4" column="1">
-          <widget class="QLabel" name="readPositionLabel_2">
+          <widget class="QLabel" name="readMotPosSetup">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>28</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="autoFillBackground">
             <bool>true</bool>
            </property>
@@ -265,6 +291,8 @@
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -273,7 +301,7 @@
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QLineEdit" name="setRotVelocityLine_2">
+          <widget class="QLineEdit" name="setMotVelocitySetup">
            <property name="layoutDirection">
             <enum>Qt::RightToLeft</enum>
            </property>
@@ -287,6 +315,8 @@
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -299,6 +329,8 @@
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -307,7 +339,7 @@
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QLineEdit" name="setRotAccLine_2">
+          <widget class="QLineEdit" name="setMotAccSetup">
            <property name="layoutDirection">
             <enum>Qt::RightToLeft</enum>
            </property>
@@ -321,6 +353,8 @@
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -329,7 +363,7 @@
           </widget>
          </item>
          <item row="3" column="1">
-          <widget class="QLineEdit" name="setRotAccLine_3">
+          <widget class="QLineEdit" name="setMotDecSetup">
            <property name="layoutDirection">
             <enum>Qt::RightToLeft</enum>
            </property>
@@ -341,9 +375,23 @@
            </property>
           </widget>
          </item>
+         <item row="5" column="0">
+          <widget class="QPushButton" name="stopMotSetup">
+           <property name="text">
+            <string>STOP</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QPushButton" name="resetMotSetup">
+           <property name="text">
+            <string>RESET</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </widget>
-       <widget class="QPushButton" name="connectMagnetBtn">
+       <widget class="QPushButton" name="connectGMWBtn">
         <property name="geometry">
          <rect>
           <x>380</x>
@@ -353,14 +401,14 @@
          </rect>
         </property>
         <property name="text">
-         <string>CONNECT MAGNET</string>
+         <string>CONNECT GMW</string>
         </property>
        </widget>
        <widget class="QPushButton" name="connectMotorBtn">
         <property name="geometry">
          <rect>
-          <x>780</x>
-          <y>50</y>
+          <x>40</x>
+          <y>380</y>
           <width>171</width>
           <height>31</height>
          </rect>
@@ -386,7 +434,15 @@
         </property>
         <layout class="QGridLayout" name="gridLayout_9">
          <item row="3" column="1">
-          <widget class="QLabel" name="readFieldLabel_3">
+          <widget class="QLabel" name="readFieldGMWSetup">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>28</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="autoFillBackground">
             <bool>true</bool>
            </property>
@@ -396,27 +452,42 @@
           </widget>
          </item>
          <item row="0" column="0">
-          <widget class="QComboBox" name="poleTypeCB_2">
+          <widget class="QComboBox" name="poleTypeGMWSetup">
+           <property name="statusTip">
+            <string>pole type</string>
+           </property>
+           <property name="accessibleName">
+            <string/>
+           </property>
            <property name="editable">
             <bool>false</bool>
            </property>
+           <property name="maxVisibleItems">
+            <number>2</number>
+           </property>
           </widget>
          </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="setFieldLine_3">
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="setFieldGMWSetup">
            <property name="placeholderText">
             <string>field</string>
            </property>
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QComboBox" name="gapValueCB_2"/>
+          <widget class="QComboBox" name="gapValueGMWSetup">
+           <property name="statusTip">
+            <string>gap value</string>
+           </property>
+          </widget>
          </item>
          <item row="3" column="0">
           <widget class="QLabel" name="label_17">
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -424,11 +495,13 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
+         <item row="2" column="0">
           <widget class="QLabel" name="label_18">
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -436,20 +509,65 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
+         <item row="1" column="0">
           <widget class="QLabel" name="label_19">
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
-            <string>FieldRamp(mT)</string>
+            <string>Set Maximum</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="setMaxCurrentGMW">
+           <property name="placeholderText">
+            <string>MAX current (Amp)</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QFrame" name="gridFrame_7">
+        <property name="geometry">
+         <rect>
+          <x>740</x>
+          <y>90</y>
+          <width>311</width>
+          <height>171</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Panel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_10">
+         <item row="3" column="1">
+          <widget class="QLabel" name="readFieldCAYLARSetup">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>28</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
+           <property name="text">
+            <string/>
            </property>
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QLineEdit" name="setFieldLine_4">
+          <widget class="QLineEdit" name="setFieldRampCAYLARSetup">
            <property name="text">
             <string/>
            </property>
@@ -458,20 +576,553 @@
            </property>
           </widget>
          </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_20">
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>ReadField(mT)</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="setFieldCAYLARSetup">
+           <property name="placeholderText">
+            <string>field</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_24">
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>FieldRamp(mT)</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_21">
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>SetField(mT)</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="gapValueCAYLARSetup">
+           <property name="statusTip">
+            <string>gap value</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_27">
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>GapValue</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </widget>
-       <widget class="QLabel" name="label_10">
+       <widget class="QPushButton" name="connectCAYLARBtn">
         <property name="geometry">
          <rect>
-          <x>200</x>
-          <y>60</y>
-          <width>65</width>
-          <height>21</height>
+          <x>740</x>
+          <y>50</y>
+          <width>171</width>
+          <height>31</height>
          </rect>
         </property>
         <property name="text">
-         <string>TextLabel</string>
+         <string>CONNECT CAYLAR</string>
         </property>
+       </widget>
+       <widget class="QLabel" name="ledLakeshore">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>50</y>
+          <width>31</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>IMAGES/ledOFF_patrat.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="margin">
+         <number>0</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ledGMW">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>640</x>
+          <y>50</y>
+          <width>31</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>IMAGES/ledOFF_patrat.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="margin">
+         <number>0</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ledCAYLAR">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>1000</x>
+          <y>50</y>
+          <width>31</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>IMAGES/ledOFF_patrat.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="margin">
+         <number>0</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ledMotor">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>380</y>
+          <width>31</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>IMAGES/ledOFF_patrat.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="margin">
+         <number>0</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_31">
+        <property name="geometry">
+         <rect>
+          <x>650</x>
+          <y>340</y>
+          <width>131</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#000000;&quot;&gt;DETECTION&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ledSRS">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>650</x>
+          <y>380</y>
+          <width>31</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>IMAGES/ledOFF_patrat.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="margin">
+         <number>0</number>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="connectSRSBtn">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>380</y>
+          <width>171</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>CONNECT SRS lock-in</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ledPrinceton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>1000</x>
+          <y>380</y>
+          <width>31</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>IMAGES/ledOFF_patrat.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="margin">
+         <number>0</number>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="connectPrincetonBtn">
+        <property name="geometry">
+         <rect>
+          <x>740</x>
+          <y>380</y>
+          <width>221</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>CONNECT PRINCETON lock-in</string>
+        </property>
+       </widget>
+       <widget class="QFrame" name="gridFrame_9">
+        <property name="geometry">
+         <rect>
+          <x>740</x>
+          <y>420</y>
+          <width>311</width>
+          <height>181</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Panel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_12">
+         <item row="2" column="1">
+          <widget class="QLabel" name="readPrincexSetup">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>28</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLabel" name="readPrinceySetup">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>28</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QPushButton" name="autoMeasPrince">
+           <property name="text">
+            <string>Auto Measure</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="autoOffsetPrince">
+           <property name="text">
+            <string>Auto Offset</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_38">
+           <property name="font">
+            <font>
+             <family>Optima</family>
+             <pointsize>14</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>PHASE</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_36">
+           <property name="font">
+            <font>
+             <family>Optima</family>
+             <pointsize>14</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>MAGNITUDE</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="verticalLayoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>420</y>
+          <width>311</width>
+          <height>221</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <layout class="QGridLayout" name="gridLayout_13">
+           <item row="0" column="1">
+            <widget class="QPushButton" name="autoOffsetSRS">
+             <property name="text">
+              <string>Auto Phase</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QPushButton" name="autoMeasSRS">
+             <property name="text">
+              <string>Auto Offset</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QPushButton" name="resetSRS">
+             <property name="text">
+              <string>RESET</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="autoSensSRS">
+             <property name="text">
+              <string>Auto SENSITIVITY</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QFrame" name="gridFrame_8">
+           <property name="frameShape">
+            <enum>QFrame::Panel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Sunken</enum>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_11">
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_35">
+              <property name="font">
+               <font>
+                <family>Optima</family>
+                <pointsize>14</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>MAGNITUDE</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="readSRSxSetup">
+              <property name="font">
+               <font>
+                <family>Constantia</family>
+                <pointsize>28</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="autoFillBackground">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_37">
+              <property name="font">
+               <font>
+                <family>Optima</family>
+                <pointsize>14</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>PHASE</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLabel" name="readSRSySetup">
+              <property name="font">
+               <font>
+                <family>Calibri</family>
+                <pointsize>28</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="autoFillBackground">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </widget>
       <widget class="QWidget" name="tabTimescan">
@@ -506,15 +1157,15 @@
         <bool>false</bool>
        </property>
        <attribute name="title">
-        <string>GENERAL CONTROL</string>
+        <string>CONTROL</string>
        </attribute>
        <widget class="QFrame" name="gridFrame">
         <property name="geometry">
          <rect>
           <x>4</x>
-          <y>467</y>
+          <y>457</y>
           <width>241</width>
-          <height>221</height>
+          <height>231</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -528,14 +1179,14 @@
           <enum>QLayout::SetNoConstraint</enum>
          </property>
          <item row="7" column="0">
-          <widget class="QPushButton" name="stopTimescanBtn">
+          <widget class="QPushButton" name="stopTimescan">
            <property name="text">
             <string>STOP</string>
            </property>
           </widget>
          </item>
          <item row="5" column="0">
-          <widget class="QPushButton" name="startTimescanBtn">
+          <widget class="QPushButton" name="startTimescan">
            <property name="text">
             <string>START</string>
            </property>
@@ -552,7 +1203,7 @@
           </widget>
          </item>
          <item row="0" column="0">
-          <widget class="QPushButton" name="workDirBtn">
+          <widget class="QPushButton" name="workDirControl">
            <property name="text">
             <string>WorkDir</string>
            </property>
@@ -577,8 +1228,14 @@
            <property name="sizeConstraint">
             <enum>QLayout::SetMaximumSize</enum>
            </property>
-           <item row="1" column="0">
+           <item row="0" column="0">
             <widget class="QRadioButton" name="tempRadioBtn">
+             <property name="maximumSize">
+              <size>
+               <width>107</width>
+               <height>16777215</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>10</pointsize>
@@ -591,37 +1248,34 @@
               </font>
              </property>
              <property name="text">
-              <string>temp</string>
+              <string>temperature</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label">
-             <property name="font">
-              <font>
-               <weight>75</weight>
-               <bold>true</bold>
-               <underline>true</underline>
-              </font>
-             </property>
-             <property name="text">
-              <string>Sensor</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QRadioButton" name="lockInRadioBtn">
-             <property name="font">
-              <font>
-               <pointsize>10</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="text">
-              <string>lockIn</string>
-             </property>
-            </widget>
+           <item row="0" column="1">
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <item>
+              <widget class="QRadioButton" name="magnitudeRadioBtn">
+               <property name="text">
+                <string>magnitude</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="phaseRadioBtn">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>phase</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </item>
@@ -661,7 +1315,7 @@
           <x>5</x>
           <y>34</y>
           <width>241</width>
-          <height>121</height>
+          <height>131</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -676,6 +1330,8 @@
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -684,7 +1340,15 @@
           </widget>
          </item>
          <item row="4" column="1">
-          <widget class="QLabel" name="readTempLabel">
+          <widget class="QLabel" name="readTempControl">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>28</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="autoFillBackground">
             <bool>true</bool>
            </property>
@@ -698,6 +1362,8 @@
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -706,7 +1372,7 @@
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QLineEdit" name="setTempLine">
+          <widget class="QLineEdit" name="setTempControl">
            <property name="placeholderText">
             <string>temperature</string>
            </property>
@@ -717,6 +1383,8 @@
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -725,7 +1393,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QProgressBar" name="tempHeaterOutputBar">
+          <widget class="QProgressBar" name="heaterOutBarControl">
            <property name="value">
             <number>0</number>
            </property>
@@ -739,8 +1407,8 @@
        <widget class="QFrame" name="gridFrame">
         <property name="geometry">
          <rect>
-          <x>5</x>
-          <y>199</y>
+          <x>0</x>
+          <y>210</y>
           <width>241</width>
           <height>101</height>
          </rect>
@@ -757,6 +1425,8 @@
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -765,7 +1435,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLineEdit" name="setFieldLine">
+          <widget class="QLineEdit" name="setFieldControl">
            <property name="placeholderText">
             <string>field</string>
            </property>
@@ -776,6 +1446,8 @@
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -784,7 +1456,15 @@
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QLabel" name="readFieldLabel">
+          <widget class="QLabel" name="readFieldControl">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>28</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="autoFillBackground">
             <bool>true</bool>
            </property>
@@ -812,7 +1492,7 @@
         <property name="geometry">
          <rect>
           <x>70</x>
-          <y>175</y>
+          <y>180</y>
           <width>111</width>
           <height>20</height>
          </rect>
@@ -838,7 +1518,15 @@
         </property>
         <layout class="QGridLayout" name="gridLayout_15">
          <item row="1" column="1">
-          <widget class="QLabel" name="readPositionLabel">
+          <widget class="QLabel" name="readMotPosControl">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>28</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="autoFillBackground">
             <bool>true</bool>
            </property>
@@ -852,6 +1540,8 @@
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -860,7 +1550,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLineEdit" name="setRotPositionLine">
+          <widget class="QLineEdit" name="setMotPosControl">
            <property name="layoutDirection">
             <enum>Qt::RightToLeft</enum>
            </property>
@@ -874,6 +1564,8 @@
            <property name="font">
             <font>
              <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -954,7 +1646,7 @@
          <item row="8" column="0" colspan="2">
           <layout class="QHBoxLayout" name="horizontalLayout_6">
            <item>
-            <widget class="QLineEdit" name="maxFieldLine">
+            <widget class="QLineEdit" name="maxFieldMagn">
              <property name="font">
               <font>
                <family>Cantarell</family>
@@ -976,7 +1668,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="stepFieldLine">
+            <widget class="QLineEdit" name="stepFieldMagn">
              <property name="font">
               <font>
                <family>Cantarell</family>
@@ -998,7 +1690,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="noHystCycles">
+            <widget class="QLineEdit" name="noHystCyclesMagn">
              <property name="font">
               <font>
                <family>Cantarell</family>
@@ -1017,21 +1709,21 @@
            <item>
             <widget class="QLineEdit" name="saveHystFileName">
              <property name="placeholderText">
-              <string>Hysteresis file name (+'.txt' !!!)</string>
+              <string>Hysteresis file name</string>
              </property>
             </widget>
            </item>
           </layout>
          </item>
          <item row="0" column="0" colspan="2">
-          <widget class="QPushButton" name="workDirBtn_1">
+          <widget class="QPushButton" name="workDirMagn">
            <property name="text">
             <string>WorkDir</string>
            </property>
           </widget>
          </item>
          <item row="9" column="0" colspan="2">
-          <widget class="QPushButton" name="startHystBtn">
+          <widget class="QPushButton" name="startHyst">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -1044,7 +1736,7 @@
           </widget>
          </item>
          <item row="11" column="0" colspan="2">
-          <widget class="QPushButton" name="cancelHystBtn">
+          <widget class="QPushButton" name="cancelHyst">
            <property name="text">
             <string>CANCEL</string>
            </property>
@@ -1052,7 +1744,7 @@
          </item>
         </layout>
        </widget>
-       <widget class="PlotWidget" name="graphicsViewFieldSingleMulti">
+       <widget class="PlotWidget" name="graphicsViewFieldMulti">
         <property name="geometry">
          <rect>
           <x>247</x>
@@ -1083,7 +1775,7 @@
           <x>2</x>
           <y>330</y>
           <width>241</width>
-          <height>191</height>
+          <height>251</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -1093,47 +1785,8 @@
          <enum>QFrame::Sunken</enum>
         </property>
         <layout class="QGridLayout" name="gridLayout_8">
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_23">
-           <property name="font">
-            <font>
-             <pointsize>9</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Coil current(A)</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QProgressBar" name="currOutputBar">
-           <property name="acceptDrops">
-            <bool>false</bool>
-           </property>
-           <property name="minimum">
-            <number>-200</number>
-           </property>
-           <property name="maximum">
-            <number>200</number>
-           </property>
-           <property name="value">
-            <number>0</number>
-           </property>
-           <property name="textVisible">
-            <bool>true</bool>
-           </property>
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="format">
-            <string>%p%</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
-          <widget class="QLineEdit" name="setDemagStepsLine">
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="setDemagRamp">
            <property name="layoutDirection">
             <enum>Qt::RightToLeft</enum>
            </property>
@@ -1142,7 +1795,7 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
+         <item row="1" column="0">
           <widget class="QLabel" name="label_26">
            <property name="font">
             <font>
@@ -1152,14 +1805,14 @@
             </font>
            </property>
            <property name="text">
-            <string>ReadField(T)</string>
+            <string>ReadField(mT)</string>
            </property>
           </widget>
          </item>
-         <item row="5" column="1">
+         <item row="6" column="1">
           <layout class="QGridLayout" name="gridLayout_6">
            <item row="0" column="1">
-            <widget class="QRadioButton" name="rotateYESradioBtn">
+            <widget class="QRadioButton" name="rotateYES">
              <property name="font">
               <font>
                <family>Helvetica Neue</family>
@@ -1174,7 +1827,7 @@
             </widget>
            </item>
            <item row="0" column="2">
-            <widget class="QRadioButton" name="rotateNOradioBtn">
+            <widget class="QRadioButton" name="rotateNO">
              <property name="font">
               <font>
                <family>Helvetica Neue</family>
@@ -1190,7 +1843,7 @@
            </item>
           </layout>
          </item>
-         <item row="5" column="0">
+         <item row="6" column="0">
           <widget class="QLabel" name="label_28">
            <property name="font">
             <font>
@@ -1205,7 +1858,7 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
+         <item row="0" column="0">
           <widget class="QLabel" name="label_25">
            <property name="font">
             <font>
@@ -1215,12 +1868,12 @@
             </font>
            </property>
            <property name="text">
-            <string>SetField(T)</string>
+            <string>SetField(mT)</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="setFieldLine_2">
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="setFieldMagn">
            <property name="layoutDirection">
             <enum>Qt::RightToLeft</enum>
            </property>
@@ -1229,8 +1882,16 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="1">
-          <widget class="QLabel" name="readFieldLabel_2">
+         <item row="1" column="1">
+          <widget class="QLabel" name="readFieldMagn">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>28</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="autoFillBackground">
             <bool>true</bool>
            </property>
@@ -1239,7 +1900,7 @@
            </property>
           </widget>
          </item>
-         <item row="4" column="0">
+         <item row="3" column="0">
           <widget class="QLabel" name="label_22">
            <property name="font">
             <font>
@@ -1249,7 +1910,41 @@
             </font>
            </property>
            <property name="text">
-            <string>RATE</string>
+            <string>Field Rate</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="demagFrequency">
+           <property name="layoutDirection">
+            <enum>Qt::RightToLeft</enum>
+           </property>
+           <property name="placeholderText">
+            <string>frequency (Hz)</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_29">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Rotation Rate</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="rotFrequency">
+           <property name="layoutDirection">
+            <enum>Qt::RightToLeft</enum>
+           </property>
+           <property name="placeholderText">
+            <string>frequency (Hz)</string>
            </property>
           </widget>
          </item>
@@ -1259,7 +1954,7 @@
         <property name="geometry">
          <rect>
           <x>30</x>
-          <y>530</y>
+          <y>600</y>
           <width>191</width>
           <height>51</height>
          </rect>
@@ -1274,6 +1969,27 @@
         </property>
         <property name="text">
          <string>DEMAG-it</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="demagLabel">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>570</y>
+          <width>191</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Calibri</family>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </widget>
