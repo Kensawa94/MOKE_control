@@ -38,22 +38,27 @@ class KepcoCtrl:
         self.table_gaps = self.aa[0,1:]
         self.table_currents = self.aa[1:,0]
         self.table_fields = [self.aa[1:,ii] for ii in range(1,len(self.table_gaps)+1)]
-
+        self.fieldOffset = 0.45
 
     def get_current(self):
         self.readCurrent = float(self.FieldCtrl.query("MEAS:CURR?"))
+        time.sleep(0.01)
         return self.readCurrent
     def get_field(self):
         self.readCurrent = self.get_current()
         self.readField = self.curr2field(self.readCurrent)
         return round(self.readField,2)
     def set_field(self,writeField):
-        self.writeCurrent = self.field2curr(writeField)
+        self.writeField = float(writeField)
+        self.writeCurrent = self.field2curr(self.writeField)
         if self.writeCurrent >= self.max_current:
             print "CURRENT TO HIGH, DECREASE YOUR FIELD VALUE!!!"
             self.FieldCtrl.write("CURR 0.0")
+            time.sleep(0.05)
         else:
             self.FieldCtrl.write("CURR %f"%(self.writeCurrent))
+            while float(self.FieldCtrl.query("MEAS:CURR?")) < self.writeCurrent - 0.01 or float(self.FieldCtrl.query("MEAS:CURR?")) > self.writeCurrent + 0.01:
+                time.sleep(0.001)
     def field2curr(self,writeField):
         writeField = float(writeField)/1000
         dict_gaps={}
